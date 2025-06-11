@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { AxiosError } from "axios";
 
 const RequestForm = () => {
   const [form, setForm] = useState({
@@ -23,10 +24,19 @@ const RequestForm = () => {
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/request-feature`,
         form
       );
-      setStatus("✅ Feature request sent!");
+
+      if (res.status == 201) {
+        setStatus("✅ Feature request sent!");
+      } else {
+        setStatus("Server error: " + res.status);
+      }
+
       setForm({ title: "", description: "", phoneNumber: "" });
-    } catch (err: any) {
-      setStatus(`❌ ${err.response?.data?.message || "Something went wrong"}`);
+    } catch (err) {
+      const error = err as AxiosError<{ message: string }>;
+      setStatus(
+        `❌ ${error.response?.data?.message || "Something went wrong"}`
+      );
     }
   };
 

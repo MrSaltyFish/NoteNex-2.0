@@ -1,11 +1,9 @@
 import Header from "../components/Header";
-import RequestForm from "../components/RequestForm";
 
 const RequestFeature = () => {
   return (
     <div>
       <Header />
-      <RequestForm />
     </div>
   );
 };
