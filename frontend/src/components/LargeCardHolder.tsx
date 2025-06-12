@@ -1,6 +1,17 @@
 import LargeCard from "./LargeCard"; // Adjust path if needed
 
-const LargeCardHolder = ({ cards }) => {
+interface CardData {
+  imageSrc: string;
+  heading: string;
+  tags: string[];
+  body: string;
+}
+
+interface LargeCardHolderProps {
+  cards: CardData[];
+}
+
+const LargeCardHolder: React.FC<LargeCardHolderProps> = ({ cards }) => {
   return (
     <div className="flex flex-col gap-8">
       {cards.map((card, index) => (

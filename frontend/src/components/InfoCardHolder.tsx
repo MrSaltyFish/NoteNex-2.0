@@ -1,7 +1,12 @@
-import InfoCard from "../components/InfoCard";
+import InfoCard from "./InfoCard";
 
-// Simulated backend response
-const cardData = [
+interface CardData {
+  title: string;
+  subtitle: string;
+  rightItems: string[];
+}
+
+const cardData: CardData[] = [
   {
     title: "Compiler Design",
     subtitle: "Next Class",
@@ -19,7 +24,7 @@ const cardData = [
   },
 ];
 
-const InfoCardHolder = () => {
+const InfoCardHolder: React.FC = () => {
   return (
     <div className="grid grid-cols-[500px_500px_350px] gap-x-8">
       {cardData.map((card, idx) => (

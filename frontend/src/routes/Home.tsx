@@ -1,9 +1,7 @@
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-// import InfoCard from "../components/InfoCard";
 import InfoCardHolder from "../components/InfoCardHolder";
 import LargeCardHolder from "../components/LargeCardHolder";
-import { Link } from "react-router-dom";
 
 const sampleData = [
   {
