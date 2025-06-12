@@ -1,4 +1,16 @@
-const LargeCard = ({ imageSrc, heading, tags, body }) => {
+interface LargeCardProps {
+  imageSrc: string;
+  heading: string;
+  body: string;
+  tags: string[];
+}
+
+const LargeCard: React.FC<LargeCardProps> = ({
+  imageSrc,
+  heading,
+  tags,
+  body,
+}) => {
   return (
     <div className="flex w-[1024px] h-[200px] border-[4px] border-[#1F0033] shadow-sm overflow-hidden">
       {/* Left: Image */}

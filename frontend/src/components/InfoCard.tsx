@@ -1,4 +1,10 @@
-const InfoCard = ({ title, subtitle, rightItems }) => {
+interface InfoCardProps {
+  title: string;
+  subtitle: string;
+  rightItems: string[];
+}
+
+const InfoCard: React.FC<InfoCardProps> = ({ title, subtitle, rightItems }) => {
   return (
     <div className="mx-auto w-[500px] border-[4px] border-[#1F0033] flex shadow-sm">
       {/* Left Section */}
