@@ -1,0 +1,22 @@
+{
+  "smallCards": [
+    {
+      "title": "Compiler Design",
+      "subtitle": "Next Class",
+      "rightItems": ["C-104", "2", "Three"]
+    },
+    {
+      "title": "Operating Systems",
+      "subtitle": "Upcoming",
+      "rightItems": ["C-201", "4", "Today"]
+    }
+  ],
+  "largeCards": [
+    {
+      "imageSrc": "/images/compiler.jpg",
+      "heading": "Compiler Deep Dive",
+      "tags": ["Lexical", "Parser", "CodeGen"],
+      "body": "Get ready to understand how languages are born."
+    }
+  ]
+}

@@ -3,8 +3,12 @@ dotenv.config();
 
 import express from "express";
 import cors from "cors";
-import authRoutes from "./routes/auth.route.js";
-import requestFeatureRoutes from "./routes/requestFeature.route.js";
+
+import authRoutes from "./routes/auth.routes.js";
+import requestFeatureRoutes from "./routes/requestFeature.routes.js";
+import pdfRoutes from "./routes/pdf.routes.js";
+import cardRoutes from "./routes/card.routes.js";
+
 import connectDB from "./utils/db.js";
 
 const app = express();
@@ -15,10 +19,27 @@ connectDB();
 
 app.use(express.static("static"));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "*", // or your frontend URL
+  })
+);
+
 app.use(express.json());
 
+// Allow iframe embedding (remove block headers)
+app.use((req, res, next) => {
+  res.removeHeader("X-Frame-Options");
+  res.setHeader(
+    "Content-Security-Policy",
+    "frame-ancestors 'self' http://localhost:5173"
+  );
+  next();
+});
+
 app.use(API_VERSION + "/auth", authRoutes);
+app.use(API_VERSION + "/pdfs", pdfRoutes);
+app.use(API_VERSION + "/card", cardRoutes);
 app.use(API_VERSION, requestFeatureRoutes);
 
 app.get(API_VERSION + "/", (req, res) => {
