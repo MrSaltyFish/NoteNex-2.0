@@ -109,6 +109,7 @@ const RequestForm = () => {
               id="phoneNumber"
               name="phoneNumber"
               type="text"
+              placeholder="+91 XXXXX XXXXX"
               value={form.phoneNumber}
               onChange={handleChange}
               className={`px-3 py-2 w-full border-2 ${
